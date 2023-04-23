@@ -1,4 +1,4 @@
-const apiBase = "http://eskiltorsetcom.local";
+const apiBase = "https://eskiltorsetcom.local";
 const wooCommerceBase = "/wp-json/wc/store";
 const productBase = "/products"
 const featuredURL = "/products?&featured=true"
