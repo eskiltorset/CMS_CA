@@ -1,7 +1,4 @@
-const apiBase = "https://eskiltorsetcom.local";
-const proxy = "https://noroffcors.onrender.com/";
-
-const corsFix = proxy + apiBase;
+const apiBase = "http://eskiltorsetcom.local";
 
 const wooCommerceBase = "/wp-json/wc/store";
 const productBase = "/products"
@@ -9,9 +6,9 @@ const featuredURL = "/products?&featured=true"
 
 const pagesBase = "/wp-json/wp/v2/pages";
 
-const fullPageURL = corsFix + pagesBase;
+const fullPageURL = apiBase + pagesBase;
 
-const fullProductURL = corsFix + wooCommerceBase + productBase;
+const fullProductURL = apiBase + wooCommerceBase + productBase;
 
 async function getProducts(){
     const response = await fetch(fullProductURL);

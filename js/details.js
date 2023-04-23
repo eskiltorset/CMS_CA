@@ -1,4 +1,4 @@
-import { apiBase, wooCommerceBase, productBase, pagesBase, getProduct, renderSingleProductHTML, createProductHTML } from "./constant.js";
+import { apiBase, wooCommerceBase, productBase, pagesBase, getProduct, renderSingleProductHTML } from "./constant.js";
 
 const fullPageURL = apiBase + pagesBase;
 
