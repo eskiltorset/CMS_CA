@@ -1,10 +1,3 @@
-/*const apiBase = "http://eskiltorsetcom.local";
-const wooCommerceBase = "/wp-json/wc/store";
-const productBase = "/products"
-const featuredURL = "/products?&featured=true"
-
-const pagesBase = "/wp-json/wp/v2/pages";*/
-
 import { apiBase, wooCommerceBase, productBase, featuredURL, pagesBase } from "./constant.js";
 
 const fullPageURL = apiBase + pagesBase;
@@ -22,38 +15,12 @@ async function getProducts(){
     const response = await fetch(fullProductURL);
     const featuredProducts = await getFeaturedProducts();
     const products = await response.json();
-    console.log(featuredProducts);
     return products;
 }
-
-/*async function getProduct(id){
-    const response = await fetch(fullProductURL + `/${id}`);
-    const product = await response.json();
-    console.log(product);
-    return product;
-}*/
-
-/*function renderSingleProductHTML(product) {
-   const { id, name, description} = product;
-   const wrapper = document.createElement("a");
-   wrapper.classList.add("contentmod");
-   
-   const heading = document.createElement("h2");
-   const body = document.createElement("p");
-
-   wrapper.href = `details.html?id=${id}`;
-   heading.innerText = name;
-   body.innerText = description;
-   wrapper.append(heading, body);
-   return wrapper;
-
-}*/
 
 function createProductHTML(product){
    const container = document.querySelector(".container");
    const id = product.id;
-
-   console.log(product);
 
    const productContainer = document.createElement("div");
    productContainer.classList.add("product");
@@ -106,8 +73,11 @@ function createFeaturedProductHTML(product){
     const productContainer = document.createElement("div");
     productContainer.classList.add("product");
     productContainer.id = product.id;
-    product = product[4];
- 
+    
+    for (let i = 0; i < product.length; i++){
+        product = product[i];
+    }
+    
     const title = document.createElement("h2");
     title.innerText = product.name;
     productContainer.append(title);
@@ -136,14 +106,14 @@ function createFeaturedProductHTML(product){
     wrapper.innerText = "Product Info"; 
     productContainer.append(wrapper);
  
- 
     featuredContainer.append(productContainer);
 }
 
 async function main() {
     const products = await getProducts();
+    const featuredProducts = await getFeaturedProducts();
     createProductsHTML(products);
-    createFeaturedProductHTML(products);
+    createFeaturedProductHTML(featuredProducts);
 }
 
 main();

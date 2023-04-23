@@ -12,14 +12,12 @@ const fullProductURL = apiBase + wooCommerceBase + productBase;
 async function getProducts(){
     const response = await fetch(fullProductURL);
     const products = await response.json();
-    console.log(products);
     return products;
 }
 
 async function getProduct(id){
     const response = await fetch(fullProductURL + `/${id}`);
     const product = await response.json();
-    console.log(product);
     return product;
 }
 
@@ -39,10 +37,9 @@ function renderSingleProductHTML(product) {
     const imgData = product.images[0];
     image.src = imgData.src;
     image.alt = imgData.alt;
-
+    
     wrapper.append(heading, image, body );
     return wrapper;
- 
  }
 
  function createProductHTML(product){
@@ -80,7 +77,6 @@ function renderSingleProductHTML(product) {
     wrapper.href = `/details.html?id=${id}`;
     wrapper.innerText = "Product Info"; 
     productContainer.append(wrapper);
- 
  
     container.append(productContainer);
  
