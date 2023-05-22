@@ -61,7 +61,7 @@ function renderSingleProductHTML(product) {
      img.src = imgData.src;
      img.alt = imgData.alt;
      productContainer.append(img);
-    }
+}
  
     const priceBefore = document.createElement("h3");
     priceBefore.classList.add("price-before");
